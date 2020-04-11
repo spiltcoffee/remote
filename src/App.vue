@@ -6,7 +6,7 @@
       dark
     >
       <div class="d-flex align-center">
-        Johnny Bravia TV Remote
+        TV Remote
       </div>
 
       <v-spacer></v-spacer>
