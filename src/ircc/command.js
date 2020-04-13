@@ -1,4 +1,4 @@
-const commands = [
+module.exports = [
   { name: "Num1", value: "AAAAAQAAAAEAAAAAAw==" },
   { name: "Num2", value: "AAAAAQAAAAEAAAABAw==" },
   { name: "Num3", value: "AAAAAQAAAAEAAAACAw==" },
@@ -117,10 +117,3 @@ const commands = [
   { name: "WirelessSubwoofer", value: "AAAAAgAAAMQAAAB+Aw==" },
   { name: "AndroidMenu", value: "AAAAAgAAAMQAAABPAw==" },
 ];
-
-module.exports = {
-  byName(findName) {
-    const command = commands.find(({ name }) => name === findName);
-    return command ? command.value : null;
-  },
-};
