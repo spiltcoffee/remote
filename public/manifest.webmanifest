@@ -1,0 +1,15 @@
+{
+  "background_color": "white",
+  "description": "TV Remote for ",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "name": "TV Remote | ",
+  "short_name": "TV Remote",
+  "start_url": "/index.html"
+}
