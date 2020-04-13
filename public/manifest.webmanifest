@@ -11,5 +11,5 @@
   ],
   "name": "TV Remote | ",
   "short_name": "TV Remote",
-  "start_url": "/index.html"
+  "start_url": "./index.html"
 }
