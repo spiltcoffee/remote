@@ -1,7 +1,7 @@
 {
   "background_color": "white",
   "description": "TV Remote for ",
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [
     {
       "src": "favicon.png",
