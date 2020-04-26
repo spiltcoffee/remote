@@ -5,33 +5,93 @@
         TV Remote
       </div>
       <v-subheader>
-        
+
       </v-subheader>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon @click="refresh"><v-icon>mdi-refresh</v-icon></v-btn>
+      <v-btn icon @click="modalRefresh"
+        ><v-icon>mdi-modalRefresh </v-icon></v-btn
+      >
     </v-app-bar>
 
-    <v-content>
+    <v-content class="mx-2">
       <v-container>
         <v-overlay v-if="loading">
           <v-progress-circular indeterminate></v-progress-circular>
         </v-overlay>
-        <v-row>
-          <v-col>
-            <pre>poweredOn: {{ poweredOn }}</pre>
-          </v-col>
+        <v-row class="my-2">
+          <v-switch
+            v-model="poweredOn"
+            @change="togglePower"
+            :label="poweredOn ? 'Powered On' : 'Powered Off'"
+          >
+          </v-switch>
         </v-row>
-        <v-row justify="space-around">
-          <v-btn fab x-large color="green darken-4 white--text" @click="wakeUp">
-            On
-          </v-btn>
-
-          <v-btn fab x-large color="red darken-4 white--text" @click="powerOff">
-            Off
-          </v-btn>
-        </v-row>
+        <v-fade-transition group>
+          <template v-if="poweredOn">
+            <v-row class="my-2" key="volume-controls">
+              <v-slider
+                :label="speaker.volume + ''"
+                :prepend-icon="'mdi-volume-' + (speaker.mute ? 'off' : 'high')"
+                v-model="speaker.volume"
+                @change="changeVolume($event)"
+                hide-details
+                class="align-center"
+              >
+                <template #append>
+                  <v-btn-toggle rounded>
+                    <v-btn @click="toggleMute">
+                      <v-icon>mdi-volume-mute</v-icon>
+                    </v-btn>
+                    <v-btn @click="decVolume">
+                      <v-icon>mdi-volume-minus</v-icon>
+                    </v-btn>
+                    <v-btn @click="incVolume">
+                      <v-icon>mdi-volume-plus</v-icon>
+                    </v-btn>
+                  </v-btn-toggle>
+                </template>
+              </v-slider>
+            </v-row>
+            <v-row class="my-2" justify="center" key="main-controls">
+              <v-btn-toggle rounded>
+                <v-btn @click="back">
+                  <v-icon>mdi-arrow-left-bold</v-icon> Back
+                </v-btn>
+                <v-btn @click="source">
+                  <v-icon>mdi-import</v-icon> Source
+                </v-btn>
+                <v-btn @click="home"><v-icon>mdi-home</v-icon> Home</v-btn>
+                <v-btn @click="menu"><v-icon>mdi-menu</v-icon> Menu</v-btn>
+              </v-btn-toggle>
+            </v-row>
+            <v-row class="my-8" justify="center" key="directional-controls">
+              <div class="dircon">
+                <v-btn fab class="dircon__button dircon__button--up">
+                  <v-icon>mdi-chevron-up</v-icon>
+                </v-btn>
+                <v-btn fab class="dircon__button dircon__button--right">
+                  <v-icon>mdi-chevron-right</v-icon>
+                </v-btn>
+                <v-btn fab class="dircon__button dircon__button--down">
+                  <v-icon>mdi-chevron-down</v-icon>
+                </v-btn>
+                <v-btn fab class="dircon__button dircon__button--left">
+                  <v-icon>mdi-chevron-left</v-icon>
+                </v-btn>
+                <v-btn fab class="dircon__button font-weight-bold">OK</v-btn>
+              </div>
+            </v-row>
+            <v-row class="my-2" justify="center" key="track-controls">
+              <v-btn-toggle rounded>
+                <v-btn @click="stop"> <v-icon>mdi-stop</v-icon> Stop </v-btn>
+                <v-btn @click="pause"> <v-icon>mdi-pause</v-icon> Pause </v-btn>
+                <v-btn @click="play"> <v-icon>mdi-play</v-icon> Play </v-btn>
+              </v-btn-toggle>
+            </v-row>
+          </template>
+        </v-fade-transition>
       </v-container>
     </v-content>
   </v-app>
@@ -62,12 +122,12 @@ export default {
   }),
 
   mounted() {
-    setInterval(this.internalRefresh, 60000);
-    this.internalRefresh();
+    setInterval(this.refresh, 60000);
+    this.refresh();
   },
 
   methods: {
-    internalRefresh() {
+    refresh() {
       return Promise.all([
         apiInstance.system
           .getPowerStatus()
@@ -76,8 +136,24 @@ export default {
 
         apiInstance.audio
           .getVolumeInformation()
-          .then((result) => {
-            console.log(result);
+          .then(([devices]) => {
+            devices
+              .filter(({ target }) => target === "speaker")
+              .forEach(
+                ({
+                  volume = 0,
+                  mute = false,
+                  maxVolume = 100,
+                  minVolume = 0,
+                }) => {
+                  this.speaker = {
+                    volume,
+                    mute,
+                    maxVolume,
+                    minVolume,
+                  };
+                }
+              );
           })
           .catch(({ code, message }) => {
             if (code === 40005) {
@@ -88,24 +164,97 @@ export default {
           })
       ]);
     },
-    refresh() {
+    modalRefresh() {
       this.loading = true;
-      this.internalRefresh().then(() => {
+      this.refresh().then(() => {
         this.loading = false;
       });
     },
-    wakeUp() {
+    togglePower(value) {
       this.loading = true;
-      irccInstance.wakeUp().then(() => {
+      (value ? irccInstance.wakeUp : irccInstance.powerOff)().then(() => {
+        setTimeout(this.modalRefresh, 1000);
+      });
+    },
+
+    toggleMute() {
+      irccInstance.mute().then(() => {
+        this.mute = !this.mute;
         setTimeout(this.refresh, 1000);
       });
     },
-    powerOff() {
-      this.loading = true;
-      irccInstance.powerOff().then(() => {
+    decVolume() {
+      irccInstance.volumeDown().then(() => {
+        this.speaker.volume--;
         setTimeout(this.refresh, 1000);
       });
-    }
-  }
+    },
+    incVolume() {
+      irccInstance.volumeUp().then(() => {
+        this.speaker.volume++;
+        setTimeout(this.refresh, 1000);
+      });
+    },
+    changeVolume(volume) {
+      apiInstance.audio.setAudioVolume("speaker", volume + "").then(() => {
+        this.speaker.volume = volume;
+        setTimeout(this.refresh, 1000);
+      });
+    },
+
+    stop() {
+      irccInstance.stop();
+    },
+    pause() {
+      irccInstance.pause();
+    },
+    play() {
+      irccInstance.play();
+    },
+
+    back() {
+      irccInstance.back();
+    },
+    source() {
+      irccInstance.input();
+    },
+    home() {
+      irccInstance.home();
+    },
+    menu() {
+      irccInstance.options();
+    },
+  },
 };
 </script>
+
+<style scoped>
+.dircon {
+  height: calc(56px * 3 + 16px);
+  width: calc(56px * 3 + 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dircon__button {
+  position: absolute;
+}
+
+.dircon__button--up {
+  top: 0;
+}
+
+.dircon__button--right {
+  right: 0;
+}
+
+.dircon__button--down {
+  bottom: 0;
+}
+
+.dircon__button--left {
+  left: 0;
+}
+</style>

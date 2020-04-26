@@ -9,7 +9,7 @@ module.exports = {
       new WorkboxWebpackPlugin.GenerateSW({
         clientsClaim: true,
         skipWaiting: true,
-        maximumFileSizeToCacheInBytes: 100000,
+        maximumFileSizeToCacheInBytes: 10000000,
       }),
     ],
   },
