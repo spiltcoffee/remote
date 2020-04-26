@@ -68,19 +68,37 @@
             </v-row>
             <v-row class="my-8" justify="center" key="directional-controls">
               <div class="dircon">
-                <v-btn fab class="dircon__button dircon__button--up">
+                <v-btn
+                  @click="up"
+                  fab
+                  class="dircon__button dircon__button--up"
+                >
                   <v-icon>mdi-chevron-up</v-icon>
                 </v-btn>
-                <v-btn fab class="dircon__button dircon__button--right">
+                <v-btn
+                  @click="right"
+                  fab
+                  class="dircon__button dircon__button--right"
+                >
                   <v-icon>mdi-chevron-right</v-icon>
                 </v-btn>
-                <v-btn fab class="dircon__button dircon__button--down">
+                <v-btn
+                  @click="down"
+                  fab
+                  class="dircon__button dircon__button--down"
+                >
                   <v-icon>mdi-chevron-down</v-icon>
                 </v-btn>
-                <v-btn fab class="dircon__button dircon__button--left">
+                <v-btn
+                  @click="left"
+                  fab
+                  class="dircon__button dircon__button--left"
+                >
                   <v-icon>mdi-chevron-left</v-icon>
                 </v-btn>
-                <v-btn fab class="dircon__button font-weight-bold">OK</v-btn>
+                <v-btn @click="ok" fab class="dircon__button font-weight-bold">
+                  OK
+                </v-btn>
               </div>
             </v-row>
             <v-row class="my-2" justify="center" key="track-controls">
@@ -156,9 +174,8 @@ export default {
               );
           })
           .catch(({ code, message }) => {
-            if (code === 40005) {
-              console.log("TV is offline");
-            } else {
+            // 40005 == TV is offline
+            if (code !== 40005) {
               console.error({ code, message });
             }
           })
@@ -180,25 +197,21 @@ export default {
     toggleMute() {
       irccInstance.mute().then(() => {
         this.mute = !this.mute;
-        setTimeout(this.refresh, 1000);
       });
     },
     decVolume() {
       irccInstance.volumeDown().then(() => {
         this.speaker.volume--;
-        setTimeout(this.refresh, 1000);
       });
     },
     incVolume() {
       irccInstance.volumeUp().then(() => {
         this.speaker.volume++;
-        setTimeout(this.refresh, 1000);
       });
     },
     changeVolume(volume) {
       apiInstance.audio.setAudioVolume("speaker", volume + "").then(() => {
         this.speaker.volume = volume;
-        setTimeout(this.refresh, 1000);
       });
     },
 
@@ -213,7 +226,7 @@ export default {
     },
 
     back() {
-      irccInstance.back();
+      irccInstance.return();
     },
     source() {
       irccInstance.input();
@@ -223,6 +236,22 @@ export default {
     },
     menu() {
       irccInstance.options();
+    },
+
+    up() {
+      irccInstance.up();
+    },
+    right() {
+      irccInstance.right();
+    },
+    down() {
+      irccInstance.down();
+    },
+    left() {
+      irccInstance.left();
+    },
+    ok() {
+      irccInstance.confirm();
     },
   },
 };
