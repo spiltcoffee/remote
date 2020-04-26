@@ -10,9 +10,9 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon @click="modalRefresh"
-        ><v-icon>mdi-modalRefresh </v-icon></v-btn
-      >
+      <v-btn text @click="modalRefresh">
+        <v-icon>mdi-refresh</v-icon> sync
+      </v-btn>
     </v-app-bar>
 
     <v-content class="mx-2">
