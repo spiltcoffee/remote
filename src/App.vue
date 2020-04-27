@@ -1,6 +1,9 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
+      <v-btn icon @click.stop="drawer = !drawer">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
       <div class="d-flex align-center">
         TV Remote
       </div>
@@ -9,11 +12,31 @@
       </v-subheader>
 
       <v-spacer></v-spacer>
-
-      <v-btn text @click="modalRefresh">
-        <v-icon>mdi-refresh</v-icon> sync
-      </v-btn>
     </v-app-bar>
+
+    <v-navigation-drawer absolute temporary v-model="drawer">
+      <v-list>
+        <v-list-item key="sync" link @click="modalRefresh">
+          <v-list-item-icon>
+            <v-icon>mdi-refresh</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>Sync</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item key="dark-mode" v-model="darkMode">
+          <v-list-item-action>
+            <v-checkbox v-model="darkMode"></v-checkbox>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title>Dark Mode</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-content class="mx-2">
       <v-container>
@@ -136,12 +159,25 @@ export default {
       mute: false,
       volume: 0
     },
-    loading: false
+    loading: false,
+    drawer: false,
   }),
 
   mounted() {
     setInterval(this.refresh, 60000);
     this.refresh();
+  },
+
+  computed: {
+    darkMode: {
+      get() {
+        return this.$vuetify.theme.dark;
+      },
+      set(newValue) {
+        this.$vuetify.theme.dark = newValue;
+        localStorage.setItem("darkMode", newValue);
+      },
+    },
   },
 
   methods: {
