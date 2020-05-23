@@ -18,4 +18,10 @@ export default new Vuetify({
   theme: {
     dark: darkMode,
   },
+  breakpoint: {
+    thresholds: {
+      xs: 432,
+    },
+    scrollbarWidth: 16,
+  },
 });

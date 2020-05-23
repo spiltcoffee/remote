@@ -80,13 +80,20 @@
             <v-row class="my-2" justify="center" key="main-controls">
               <v-btn-toggle rounded>
                 <v-btn @click="back">
-                  <v-icon>mdi-arrow-left-bold</v-icon> Back
+                  <v-icon>mdi-arrow-left-bold</v-icon>
+                  <span v-if="showLabels">Back</span>
                 </v-btn>
                 <v-btn @click="source">
-                  <v-icon>mdi-import</v-icon> Source
+                  <v-icon>mdi-import</v-icon>
+                  <span v-if="showLabels">Source</span>
                 </v-btn>
-                <v-btn @click="home"><v-icon>mdi-home</v-icon> Home</v-btn>
-                <v-btn @click="menu"><v-icon>mdi-menu</v-icon> Menu</v-btn>
+                <v-btn @click="home">
+                  <v-icon>mdi-home</v-icon>
+                  <span v-if="showLabels">Home</span>
+                </v-btn>
+                <v-btn @click="menu">
+                  <v-icon>mdi-menu</v-icon> <span v-if="showLabels">Menu</span>
+                </v-btn>
               </v-btn-toggle>
             </v-row>
             <v-row class="my-8" justify="center" key="directional-controls">
@@ -126,9 +133,18 @@
             </v-row>
             <v-row class="my-2" justify="center" key="track-controls">
               <v-btn-toggle rounded>
-                <v-btn @click="stop"> <v-icon>mdi-stop</v-icon> Stop </v-btn>
-                <v-btn @click="pause"> <v-icon>mdi-pause</v-icon> Pause </v-btn>
-                <v-btn @click="play"> <v-icon>mdi-play</v-icon> Play </v-btn>
+                <v-btn @click="stop">
+                  <v-icon>mdi-stop</v-icon>
+                  <span v-if="showLabels"> Stop</span>
+                </v-btn>
+                <v-btn @click="pause">
+                  <v-icon>mdi-pause</v-icon>
+                  <span v-if="showLabels">Pause</span>
+                </v-btn>
+                <v-btn @click="play">
+                  <v-icon>mdi-play</v-icon>
+                  <span v-if="showLabels">Play</span>
+                </v-btn>
               </v-btn-toggle>
             </v-row>
           </template>
@@ -177,6 +193,9 @@ export default {
         this.$vuetify.theme.dark = newValue;
         localStorage.setItem("darkMode", newValue);
       },
+    },
+    showLabels() {
+      return this.$vuetify.breakpoint.smAndUp;
     },
   },
 
