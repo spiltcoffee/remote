@@ -8,7 +8,7 @@
         TV Remote
       </div>
       <v-subheader>
-
+        {{ tvName }}
       </v-subheader>
 
       <v-spacer></v-spacer>
@@ -158,8 +158,9 @@
 import ircc from "./ircc";
 import api from "./api";
 
-const url = "";
-const psk = "";
+const url = process.env.TV_URL;
+const psk = process.env.TV_PSK;
+const name = process.env.TV_NAME;
 
 const apiInstance = api(url, psk);
 const irccInstance = ircc(url, psk);
@@ -176,7 +177,7 @@ export default {
       volume: 0
     },
     loading: false,
-    drawer: false,
+    drawer: false
   }),
 
   mounted() {
@@ -192,11 +193,14 @@ export default {
       set(newValue) {
         this.$vuetify.theme.dark = newValue;
         localStorage.setItem("darkMode", newValue);
-      },
+      }
     },
     showLabels() {
       return this.$vuetify.breakpoint.smAndUp;
     },
+    tvName() {
+      return name;
+    }
   },
 
   methods: {
@@ -217,13 +221,13 @@ export default {
                   volume = 0,
                   mute = false,
                   maxVolume = 100,
-                  minVolume = 0,
+                  minVolume = 0
                 }) => {
                   this.speaker = {
                     volume,
                     mute,
                     maxVolume,
-                    minVolume,
+                    minVolume
                   };
                 }
               );
@@ -307,8 +311,8 @@ export default {
     },
     ok() {
       irccInstance.confirm();
-    },
-  },
+    }
+  }
 };
 </script>
 

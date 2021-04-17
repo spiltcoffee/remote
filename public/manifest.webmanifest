@@ -1,7 +1,7 @@
 {
   "background_color": "#2196f3",
   "theme_color": "#2196f3",
-  "description": "TV Remote for ",
+  "description": "TV Remote for Sony Bravia TVs",
   "display": "standalone",
   "icons": [
     {
@@ -10,7 +10,7 @@
       "type": "image/png"
     }
   ],
-  "name": "TV Remote | ",
+  "name": "TV Remote | Sony Bravia",
   "short_name": "TV Remote",
   "start_url": "./index.html"
 }
