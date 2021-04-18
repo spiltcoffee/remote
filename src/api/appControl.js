@@ -1,4 +1,4 @@
-module.exports = (handler) => {
+export default function (handler) {
   const appControlHandler = handler("/appControl");
 
   return {
@@ -74,4 +74,4 @@ module.exports = (handler) => {
       });
     },
   };
-};
+}

@@ -4,9 +4,7 @@
       <v-btn icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
-      <div class="d-flex align-center">
-        TV Remote
-      </div>
+      <div class="d-flex align-center">TV Remote</div>
       <v-subheader>
         {{ tvName }}
       </v-subheader>
@@ -157,13 +155,10 @@
 <script>
 import ircc from "./ircc";
 import api from "./api";
+import env from "./env";
 
-const url = process.env.TV_URL;
-const psk = process.env.TV_PSK;
-const name = process.env.TV_NAME;
-
-const apiInstance = api(url, psk);
-const irccInstance = ircc(url, psk);
+const apiInstance = api(env.TV_URL, env.TV_PSK);
+const irccInstance = ircc(env.TV_URL, env.TV_PSK);
 
 export default {
   name: "App",
@@ -174,10 +169,10 @@ export default {
       minVolume: 0,
       maxVolume: 100,
       mute: false,
-      volume: 0
+      volume: 0,
     },
     loading: false,
-    drawer: false
+    drawer: false,
   }),
 
   mounted() {
@@ -193,14 +188,14 @@ export default {
       set(newValue) {
         this.$vuetify.theme.dark = newValue;
         localStorage.setItem("darkMode", newValue);
-      }
+      },
     },
     showLabels() {
       return this.$vuetify.breakpoint.smAndUp;
     },
     tvName() {
-      return name;
-    }
+      return env.TV_NAME;
+    },
   },
 
   methods: {
@@ -221,13 +216,13 @@ export default {
                   volume = 0,
                   mute = false,
                   maxVolume = 100,
-                  minVolume = 0
+                  minVolume = 0,
                 }) => {
                   this.speaker = {
                     volume,
                     mute,
                     maxVolume,
-                    minVolume
+                    minVolume,
                   };
                 }
               );
@@ -237,7 +232,7 @@ export default {
             if (code !== 40005) {
               console.error({ code, message });
             }
-          })
+          }),
       ]);
     },
     modalRefresh() {
@@ -311,8 +306,8 @@ export default {
     },
     ok() {
       irccInstance.confirm();
-    }
-  }
+    },
+  },
 };
 </script>
 

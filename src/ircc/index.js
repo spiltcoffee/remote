@@ -1,7 +1,7 @@
-const axios = require("axios").default;
-const command = require("./command");
+import axios from "axios";
+import command from "./command.json";
 
-module.exports = (baseUrl, psk) => {
+export default function (baseUrl, psk) {
   const axiosInstance = axios.create({
     baseURL: `${baseUrl}/sony`,
     headers: {
@@ -31,4 +31,4 @@ module.exports = (baseUrl, psk) => {
       }),
     {}
   );
-};
+}

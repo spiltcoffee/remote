@@ -1,4 +1,4 @@
-module.exports = (handler) => {
+export default function (handler) {
   const guideHandler = handler("/guide");
 
   return {
@@ -11,4 +11,4 @@ module.exports = (handler) => {
       });
     },
   };
-};
+}

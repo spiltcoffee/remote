@@ -1,4 +1,4 @@
-module.exports = (handler) => {
+export default function (handler) {
   const systemHandler = handler("/system");
 
   return {
@@ -164,4 +164,4 @@ module.exports = (handler) => {
       });
     },
   };
-};
+}

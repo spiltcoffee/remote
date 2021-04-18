@@ -1,4 +1,4 @@
-module.exports = (handler) => {
+export default function (handler) {
   const encryptionHandler = handler("/encryption");
 
   return {
@@ -11,4 +11,4 @@ module.exports = (handler) => {
       });
     },
   };
-};
+}

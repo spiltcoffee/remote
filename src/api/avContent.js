@@ -1,4 +1,4 @@
-module.exports = (handler) => {
+export default function (handler) {
   const avContentHandler = handler("/avContent");
 
   return {
@@ -83,4 +83,4 @@ module.exports = (handler) => {
       });
     },
   };
-};
+}

@@ -1,4 +1,4 @@
-module.exports = (handler) => {
+export default function (handler) {
   const audioHandler = handler("/audio");
 
   return {
@@ -74,4 +74,4 @@ module.exports = (handler) => {
       });
     },
   };
-};
+}

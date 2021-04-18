@@ -1,14 +1,14 @@
-const axios = require("axios").default;
+import axios from "axios";
 
-const guide = require("./guide");
-const appControl = require("./appControl");
-const audio = require("./audio");
-const avContent = require("./avContent");
-const encryption = require("./encryption");
-const system = require("./system");
-const videoScreen = require("./videoScreen");
+import guide from "./guide.js";
+import appControl from "./appControl.js";
+import audio from "./audio.js";
+import avContent from "./avContent.js";
+import encryption from "./encryption.js";
+import system from "./system.js";
+import videoScreen from "./videoScreen.js";
 
-module.exports = (baseUrl, psk) => {
+export default function (baseUrl, psk) {
   const axiosInstance = axios.create({
     baseURL: `${baseUrl}/sony`,
     headers: {
@@ -84,4 +84,4 @@ module.exports = (baseUrl, psk) => {
       return this._videoScreen;
     },
   };
-};
+}
