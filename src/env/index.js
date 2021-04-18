@@ -1,5 +1,16 @@
-export default {
-  TV_URL: process.env.TV_URL,
-  TV_PSK: process.env.TV_PSK,
-  TV_NAME: process.env.TV_NAME,
-};
+import axios from "axios";
+
+export async function loadEnv() {
+  const axiosInstance = axios.create({
+    baseURL: `/`,
+  });
+  const path = "settings.json";
+
+  const { url, psk, name } = (await axiosInstance.get(path)).data;
+
+  return {
+    TV_URL: url,
+    TV_PSK: psk,
+    TV_NAME: name,
+  };
+}

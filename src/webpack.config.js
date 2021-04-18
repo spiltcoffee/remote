@@ -43,17 +43,8 @@ export default {
       skipWaiting: true,
       maximumFileSizeToCacheInBytes: 10000000,
     }),
-    new HtmlWebpackPlugin({
-      templateParameters: {
-        tvName: process.env.TV_NAME,
-      },
-    }),
+    new HtmlWebpackPlugin(),
     new CopyWebpackPlugin({ patterns: [{ from: "src/public" }] }),
-    new webpack.DefinePlugin({
-      "process.env.TV_URL": JSON.stringify(process.env.TV_URL),
-      "process.env.TV_PSK": JSON.stringify(process.env.TV_PSK),
-      "process.env.TV_NAME": JSON.stringify(process.env.TV_NAME),
-    }),
   ].filter(Boolean),
   optimization: {
     splitChunks: {

@@ -155,13 +155,15 @@
 <script>
 import ircc from "./ircc";
 import api from "./api";
-import env from "./env";
-
-const apiInstance = api(env.TV_URL, env.TV_PSK);
-const irccInstance = ircc(env.TV_URL, env.TV_PSK);
 
 export default {
   name: "App",
+
+  props: {
+    env: {
+      type: Object,
+    },
+  },
 
   data: () => ({
     poweredOn: null,
@@ -176,11 +178,20 @@ export default {
   }),
 
   mounted() {
+    document.title = `TV Remote | ${this.env.TV_NAME}`;
+
     setInterval(this.refresh, 60000);
     this.refresh();
   },
 
   computed: {
+    apiInstance() {
+      return api(this.env.TV_URL, this.env.TV_PSK);
+    },
+    irccInstance() {
+      return ircc(this.env.TV_URL, this.env.TV_PSK);
+    },
+
     darkMode: {
       get() {
         return this.$vuetify.theme.dark;
@@ -194,19 +205,19 @@ export default {
       return this.$vuetify.breakpoint.smAndUp;
     },
     tvName() {
-      return env.TV_NAME;
+      return this.env.TV_NAME;
     },
   },
 
   methods: {
     refresh() {
       return Promise.all([
-        apiInstance.system
+        this.apiInstance.system
           .getPowerStatus()
           .then(([{ status }]) => (this.poweredOn = status === "active"))
           .catch(() => (this.poweredOn = false)),
 
-        apiInstance.audio
+        this.apiInstance.audio
           .getVolumeInformation()
           .then(([devices]) => {
             devices
@@ -243,69 +254,71 @@ export default {
     },
     togglePower(value) {
       this.loading = true;
-      (value ? irccInstance.wakeUp : irccInstance.powerOff)().then(() => {
-        setTimeout(this.modalRefresh, 1000);
-      });
+      (value ? this.irccInstance.wakeUp : this.irccInstance.powerOff)().then(
+        () => {
+          setTimeout(this.modalRefresh, 1000);
+        }
+      );
     },
 
     toggleMute() {
-      irccInstance.mute().then(() => {
+      this.irccInstance.mute().then(() => {
         this.mute = !this.mute;
       });
     },
     decVolume() {
-      irccInstance.volumeDown().then(() => {
+      this.irccInstance.volumeDown().then(() => {
         this.speaker.volume--;
       });
     },
     incVolume() {
-      irccInstance.volumeUp().then(() => {
+      this.irccInstance.volumeUp().then(() => {
         this.speaker.volume++;
       });
     },
     changeVolume(volume) {
-      apiInstance.audio.setAudioVolume("speaker", volume + "").then(() => {
+      this.apiInstance.audio.setAudioVolume("speaker", volume + "").then(() => {
         this.speaker.volume = volume;
       });
     },
 
     stop() {
-      irccInstance.stop();
+      this.irccInstance.stop();
     },
     pause() {
-      irccInstance.pause();
+      this.irccInstance.pause();
     },
     play() {
-      irccInstance.play();
+      this.irccInstance.play();
     },
 
     back() {
-      irccInstance.return();
+      this.irccInstance.return();
     },
     source() {
-      irccInstance.input();
+      this.irccInstance.input();
     },
     home() {
-      irccInstance.home();
+      this.irccInstance.home();
     },
     menu() {
-      irccInstance.options();
+      this.irccInstance.options();
     },
 
     up() {
-      irccInstance.up();
+      this.irccInstance.up();
     },
     right() {
-      irccInstance.right();
+      this.irccInstance.right();
     },
     down() {
-      irccInstance.down();
+      this.irccInstance.down();
     },
     left() {
-      irccInstance.left();
+      this.irccInstance.left();
     },
     ok() {
-      irccInstance.confirm();
+      this.irccInstance.confirm();
     },
   },
 };

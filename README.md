@@ -1,24 +1,29 @@
 # remote
 
-## Project setup
+TV Remote website for Sony Bravia TVs.
+
+## Development
+
 ```
-yarn install
+  $ yarn
+  $ yarn serve
 ```
 
-### Compiles and hot-reloads for development
+## Production
+
 ```
-yarn serve
+  $ yarn
+  $ yarn build
 ```
 
-### Compiles and minifies for production
+or
+
 ```
-yarn build
+  $ docker build -t spiltcoffee/remote .
+  $ docker rm -f remote
+  $ docker run --rm --name remote -dp 8080:8080 -v $TV_SETTINGS_FILE:/app/settings.json spiltcoffee/remote
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Settings
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Build a JSON file that matches the schema evident in `./src/public/settings.json`, then provide the file path into the environment path `TV_SETTINGS_FILE`.
