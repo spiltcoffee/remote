@@ -9,7 +9,11 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    assignees:
+      - "spiltcoffee"
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
+    assignees:
+      - "spiltcoffee"
