@@ -15,14 +15,14 @@
     "core-js": "^3.14.0",
     "css-loader": "^5.2.6",
     "vue": "^2.6.14",
-    "vuetify": "^2.5.3"
+    "vuetify": "^2.5.5"
   },
   "devDependencies": {
     "@mdi/font": "^5.0.45",
     "copy-webpack-plugin": "^9.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.28.0",
-    "eslint-plugin-vue": "^7.10.0",
+    "eslint-plugin-vue": "^7.12.1",
     "html-webpack-plugin": "^5.3.1",
     "prettier": "^2.3.1",
     "sass": "^1.35.1",
