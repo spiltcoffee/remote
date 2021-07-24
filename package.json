@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@mdi/font": "^5.0.45",
-    "copy-webpack-plugin": "^9.0.0",
+    "copy-webpack-plugin": "^9.0.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.29.0",
     "eslint-plugin-vue": "^7.12.1",
