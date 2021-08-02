@@ -1,8 +1,11 @@
 FROM node:16-alpine AS build
+RUN node -v
+RUN yarn -v
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install
 COPY src/ src/
+RUN ls src/
 RUN yarn build
 
 FROM nginx:latest
