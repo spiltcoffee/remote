@@ -1,4 +1,4 @@
-FROM node:16.6.1-alpine AS build
+FROM node:16.8.0-alpine AS build
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install
