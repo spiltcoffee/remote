@@ -1,10 +1,10 @@
-name: docker
+name: Docker
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
-    types: [opened, synchronize, closed]
 
 jobs:
   docker:
@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: docker build
         uses: docker/build-push-action@v2
         with:

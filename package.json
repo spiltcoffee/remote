@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "cross-env NODE_ENV=development yarn webpack serve --config ./src/webpack.config.js",
     "build": "cross-env NODE_ENV=production yarn webpack --config ./src/webpack.config.js",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "format": "prettier --write src/**/*.{js,css,html,vue}",
     "docker": "docker build -t spiltcoffee/remote . && docker rm -f remote && docker run --name remote -dp 8080:80 -v $TV_SETTINGS_FILE:/usr/share/nginx/html/settings.json spiltcoffee/remote"
   },
