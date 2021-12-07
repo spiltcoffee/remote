@@ -1,10 +1,10 @@
+/* eslint-env node */
 import { fileURLToPath } from "url";
 
 import { VueLoaderPlugin } from "vue-loader";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import WorkboxWebpackPlugin from "workbox-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
-import webpack from "webpack";
 
 const development = process.env.NODE_ENV === "development";
 
