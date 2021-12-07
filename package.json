@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.21.2",
-    "core-js": "^3.18.1",
+    "core-js": "^3.19.3",
     "css-loader": "^6.4.0",
     "vue": "^2.6.14",
-    "vuetify": "^2.5.10"
+    "vuetify": "^2.6.1"
   },
   "devDependencies": {
     "@mdi/font": "^6.5.95",
@@ -34,7 +34,7 @@
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.0",
-    "workbox-webpack-plugin": "^6.3.0"
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "browserslist": [
     "> 1%",
