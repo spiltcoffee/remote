@@ -15,7 +15,7 @@
     "core-js": "^3.25.1",
     "css-loader": "^6.7.1",
     "vue": "^2.7.10",
-    "vuetify": "^2.6.9"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@mdi/font": "^7.0.96",
