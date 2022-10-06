@@ -2057,14 +2057,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "axios@npm:1.0.0"
+"axios@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "axios@npm:1.1.0"
   dependencies:
     follow-redirects: ^1.15.0
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: 6270712ec3259d0603932edbd5f9da18f941e905a128585d4e9caf8e5ccaff988f2318f45c451ab43d0d52a40dc0f63cfb53c86073e5c689a017930e1b0e6227
+  checksum: e26df8edaf953640b331638886725335ad57a3b786a13aa93c5ac33f7edfa691026c31d42e88defef5709196978c7a449a4c556937a63037b21216ab7b169b1e
   languageName: node
   linkType: hard
 
@@ -5645,7 +5645,7 @@ __metadata:
   resolution: "remote@workspace:."
   dependencies:
     "@mdi/font": ^7.0.96
-    axios: ^1.0.0
+    axios: ^1.1.0
     copy-webpack-plugin: ^11.0.0
     core-js: ^3.25.5
     cross-env: ^7.0.3
