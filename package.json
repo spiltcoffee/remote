@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "axios": "^1.2.1",
-    "core-js": "^3.26.1",
+    "core-js": "^3.27.0",
     "css-loader": "^6.7.3",
     "vue": "^2.7.14",
     "vuetify": "^2.6.13"
