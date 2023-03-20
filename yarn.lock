@@ -1252,10 +1252,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdi/font@npm:^7.1.96":
-  version: 7.1.96
-  resolution: "@mdi/font@npm:7.1.96"
-  checksum: db6dce72f553e844d049cc563cf89ae58dfd0f55f99f743ccbf1ca6ab644c940f50fbd78ecd91290a67ebb58fa5bae4983bbab782a6611456bd87566825c1ca4
+"@mdi/font@npm:^7.2.96":
+  version: 7.2.96
+  resolution: "@mdi/font@npm:7.2.96"
+  checksum: f193bb99175e723864a7fd4010594637395a77c8011668f65856aa65abd70848239ab8642fe8aabb0f57f0ffe513a32687fddcd1a927f5aa6c7329b8d8c13e75
   languageName: node
   linkType: hard
 
@@ -5652,7 +5652,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "remote@workspace:."
   dependencies:
-    "@mdi/font": ^7.1.96
+    "@mdi/font": ^7.2.96
     axios: ^1.3.4
     copy-webpack-plugin: ^11.0.0
     core-js: ^3.29.1
