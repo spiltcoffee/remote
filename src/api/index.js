@@ -28,7 +28,7 @@ export default function (baseUrl, psk) {
           }
         }
         throw new Error(
-          `No interpretable data in response [${{ path, data }}]`
+          `No interpretable data in response [${{ path, data }}]`,
         );
       });
     },
