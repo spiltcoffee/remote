@@ -235,7 +235,7 @@ export default {
                     maxVolume,
                     minVolume,
                   };
-                }
+                },
               );
           })
           .catch(({ code, message }) => {
@@ -257,7 +257,7 @@ export default {
       (value ? this.irccInstance.wakeUp : this.irccInstance.powerOff)().then(
         () => {
           setTimeout(this.modalRefresh, 1000);
-        }
+        },
       );
     },
 

@@ -29,6 +29,6 @@ export default function (baseUrl, psk) {
           return axiosInstance.post(path, envelope);
         },
       }),
-    {}
+    {},
   );
 }
