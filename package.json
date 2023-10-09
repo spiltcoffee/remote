@@ -18,7 +18,7 @@
     "vuetify": "^2.6.14"
   },
   "devDependencies": {
-    "@mdi/font": "^7.2.96",
+    "@mdi/font": "^7.3.67",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.51.0",
