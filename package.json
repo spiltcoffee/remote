@@ -23,7 +23,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.55.0",
     "eslint-plugin-vue": "^9.19.2",
-    "html-webpack-plugin": "^5.5.3",
+    "html-webpack-plugin": "^5.5.4",
     "prettier": "^3.1.0",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
