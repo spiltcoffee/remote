@@ -6322,7 +6322,7 @@ __metadata:
     vuetify-loader: ^1.9.2
     webpack: ^5.90.1
     webpack-cli: ^5.1.4
-    webpack-dev-server: ^5.0.0
+    webpack-dev-server: ^5.0.1
     workbox-webpack-plugin: ^7.0.0
   languageName: unknown
   linkType: soft
@@ -7646,9 +7646,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "webpack-dev-server@npm:5.0.0"
+"webpack-dev-server@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "webpack-dev-server@npm:5.0.1"
   dependencies:
     "@types/bonjour": ^3.5.13
     "@types/connect-history-api-fallback": ^1.5.4
@@ -7689,7 +7689,7 @@ __metadata:
       optional: true
   bin:
     webpack-dev-server: bin/webpack-dev-server.js
-  checksum: 419d1af6b6164900fb01168c3ef965fe8d27a78939ef8f5c602f82af5be8a2b68a0b015df564623dd69996d5265c679202c5970b59797e83cf322e47bbcd6022
+  checksum: 142c0a9a999ccffe0efbe89f381da9081fe82e908aaca06261f9e8dc3879d4d6842634015e51079f86d5a0b52adc50066c3d1bc952f3dc7751d88275d86b87b0
   languageName: node
   linkType: hard
 
