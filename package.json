@@ -33,7 +33,7 @@
     "vuetify-loader": "^1.9.2",
     "webpack": "^5.90.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.1",
+    "webpack-dev-server": "^5.0.2",
     "workbox-webpack-plugin": "^7.0.0"
   },
   "browserslist": [
