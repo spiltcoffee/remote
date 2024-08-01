@@ -11,7 +11,7 @@
     "docker": "docker build -t spiltcoffee/remote . && docker rm -f remote && docker run --name remote -dp 8080:80 -v $TV_SETTINGS_FILE:/usr/share/nginx/html/settings.json spiltcoffee/remote"
   },
   "dependencies": {
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "core-js": "^3.37.1",
     "css-loader": "^7.1.2",
     "vue": "^2.7.16",
