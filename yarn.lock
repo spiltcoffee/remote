@@ -6731,7 +6731,7 @@ __metadata:
     html-webpack-plugin: ^5.6.3
     prettier: ^3.5.1
     sass: ^1.85.0
-    sass-loader: ^16.0.4
+    sass-loader: ^16.0.5
     vue: ^2.7.16
     vue-loader: ^15.11.1
     vue-style-loader: ^4.1.3
@@ -6930,9 +6930,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:^16.0.4":
-  version: 16.0.4
-  resolution: "sass-loader@npm:16.0.4"
+"sass-loader@npm:^16.0.5":
+  version: 16.0.5
+  resolution: "sass-loader@npm:16.0.5"
   dependencies:
     neo-async: ^2.6.2
   peerDependencies:
@@ -6952,7 +6952,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 91abdbb8285e8241ec2938e4237675dc2792a51149878cae0489b292cfea6afa2867a601fbed4b8cb7c4a6a12185e437ad7441651b562ffae1703b08cbbca919
+  checksum: ede9659200011e4dea51de16446a45f11e570bbca66be6cd94dc0b2b73ab17dcdc88dde3247a1869d94a5793c2d1bc07650bada15103e3351eef13a70f2b1f07
   languageName: node
   linkType: hard
 
