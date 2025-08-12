@@ -3409,9 +3409,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copy-webpack-plugin@npm:^13.0.0":
-  version: 13.0.0
-  resolution: "copy-webpack-plugin@npm:13.0.0"
+"copy-webpack-plugin@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "copy-webpack-plugin@npm:13.0.1"
   dependencies:
     glob-parent: ^6.0.1
     normalize-path: ^3.0.0
@@ -3420,7 +3420,7 @@ __metadata:
     tinyglobby: ^0.2.12
   peerDependencies:
     webpack: ^5.1.0
-  checksum: 668af779d5d29cbaff02b79588c3af03ab358fe6f8446859421f88cb857f3c7462366a1d02857667133238983ff4cdfb29427816f6959163b7639b94532c1153
+  checksum: 35673183e1e684ffa6ce85d463c14535296954d9ab7d46d487783a6a03c3e16b2c20070541b32e720eaddbfeaccf0abb193314f3a59dcc16778e414163f86205
   languageName: node
   linkType: hard
 
@@ -6830,7 +6830,7 @@ __metadata:
   dependencies:
     "@mdi/font": ^7.4.47
     axios: ^1.11.0
-    copy-webpack-plugin: ^13.0.0
+    copy-webpack-plugin: ^13.0.1
     core-js: ^3.45.0
     cross-env: ^10.0.0
     css-loader: ^7.1.2
