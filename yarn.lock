@@ -6838,7 +6838,7 @@ __metadata:
     eslint-plugin-vue: ^9.32.0
     html-webpack-plugin: ^5.6.4
     prettier: ^3.6.2
-    sass: ^1.93.0
+    sass: ^1.93.1
     sass-loader: ^16.0.5
     vue: ^2.7.16
     vue-loader: ^15.11.1
@@ -7064,9 +7064,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.93.0":
-  version: 1.93.0
-  resolution: "sass@npm:1.93.0"
+"sass@npm:^1.93.1":
+  version: 1.93.1
+  resolution: "sass@npm:1.93.1"
   dependencies:
     "@parcel/watcher": ^2.4.1
     chokidar: ^4.0.0
@@ -7077,7 +7077,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: f26b69307d80efdfe6e225586be38ac3767629fc3a42ed662ec9d5d15262d1fc97df6204c1cbce2aa2e7647ceb4918dda58ca8a76706adee30e81157a74eeb1a
+  checksum: 3d8b641b497a5c58b2875c2843318c99e447cfb29adad2f6196fb6f6482ecb150f15059c73fa06dea4b6be50844232e0c7dd06725b0dba0a41c674d1bfcaaad7
   languageName: node
   linkType: hard
 
