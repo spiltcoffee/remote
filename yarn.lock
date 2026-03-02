@@ -3658,18 +3658,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copy-webpack-plugin@npm:^13.0.1":
-  version: 13.0.1
-  resolution: "copy-webpack-plugin@npm:13.0.1"
+"copy-webpack-plugin@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "copy-webpack-plugin@npm:14.0.0"
   dependencies:
     glob-parent: ^6.0.1
     normalize-path: ^3.0.0
     schema-utils: ^4.2.0
-    serialize-javascript: ^6.0.2
+    serialize-javascript: ^7.0.3
     tinyglobby: ^0.2.12
   peerDependencies:
     webpack: ^5.1.0
-  checksum: 35673183e1e684ffa6ce85d463c14535296954d9ab7d46d487783a6a03c3e16b2c20070541b32e720eaddbfeaccf0abb193314f3a59dcc16778e414163f86205
+  checksum: 8cf634d329529e636094655295d27fc8acd75c98969777d36173b85d03f6edba42fc96af042fd7c17ac34611d4d615048205f8d4c530fde50efbde7e73ec07ae
   languageName: node
   linkType: hard
 
@@ -7207,7 +7207,7 @@ __metadata:
   dependencies:
     "@mdi/font": ^7.4.47
     axios: ^1.13.6
-    copy-webpack-plugin: ^13.0.1
+    copy-webpack-plugin: ^14.0.0
     core-js: ^3.48.0
     cross-env: ^10.1.0
     css-loader: ^7.1.4
@@ -7629,6 +7629,13 @@ __metadata:
   dependencies:
     randombytes: ^2.1.0
   checksum: c4839c6206c1d143c0f80763997a361310305751171dd95e4b57efee69b8f6edd8960a0b7fbfc45042aadff98b206d55428aee0dc276efe54f100899c7fa8ab7
+  languageName: node
+  linkType: hard
+
+"serialize-javascript@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "serialize-javascript@npm:7.0.3"
+  checksum: c54f78f4123663dbca132e89885426fff2ccf20dbb862c14641f1c1cbdb5552f1ce48881cf51496aef563bde8af1765687e87043f194a1f887617ce8a02ff80d
   languageName: node
   linkType: hard
 
