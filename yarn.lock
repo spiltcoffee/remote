@@ -7191,7 +7191,7 @@ __metadata:
     vuetify: ^2.6.14
     vuetify-loader: ^1.9.2
     webpack: ^5.105.4
-    webpack-cli: ^7.0.1
+    webpack-cli: ^7.0.2
     webpack-dev-server: ^5.2.3
     workbox-webpack-plugin: ^7.4.0
   languageName: unknown
@@ -8627,9 +8627,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "webpack-cli@npm:7.0.1"
+"webpack-cli@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "webpack-cli@npm:7.0.2"
   dependencies:
     "@discoveryjs/json-ext": ^1.0.0
     commander: ^14.0.3
@@ -8651,7 +8651,7 @@ __metadata:
       optional: true
   bin:
     webpack-cli: bin/cli.js
-  checksum: 11153fd88c516bde59fc269b977ab97fb26fcb1c2fbe7c55f762adf172e7af0a5b32697ead215677128577382037ce2e8a3eba8c41696093752d0594ce8f4cd6
+  checksum: e7f8c33283cb3ddc1c7163ed0fd4a5658bd7a048d0accd8a49197ab4be819484c214316db65e3bb2e1d8109fbfdeb9a2f9a7c5c1fec4488dd07532dedd1bd61f
   languageName: node
   linkType: hard
 
